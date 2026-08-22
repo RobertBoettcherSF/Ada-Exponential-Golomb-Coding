@@ -137,7 +137,7 @@ package body Exponential_Golomb is
       Mapped : constant Natural := Decode_Order_0_Unsigned (Bits, Consumed);
    begin
       if Mapped mod 2 = 0 then
-         return -(Mapped / 2);
+         return 0 - (Mapped / 2);
       else
          return (Mapped + 1) / 2;
       end if;
@@ -161,7 +161,7 @@ package body Exponential_Golomb is
       Mapped : constant Natural := Decode_Order_K_Unsigned (Bits, K, Consumed);
    begin
       if Mapped mod 2 = 0 then
-         return -(Mapped / 2);
+         return 0 - (Mapped / 2);
       else
          return (Mapped + 1) / 2;
       end if;
