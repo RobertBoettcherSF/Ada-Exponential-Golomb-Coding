@@ -55,8 +55,6 @@ begin
    -- TEST 6
    Put_Line ("TEST 6 - Order-K Unsigned Decoding (K=2)");
    Put_Line ("  6.1 Assert '01110' decodes to 14, consumed 5");
-   -- Q=2 -> '011', R(K=2)=2 -> '10'. Value = 2*(2^2) + 2 = 10? No:
-   -- Q=3 -> '00100', R='10'. Value 14 -> Q=3, R=2 -> '00100' & '10'. Let's test 14 manually:
    Assert (Encode_Order_K_Unsigned (14, 2) = "0010010", "14 with K=2 encoding check");
    Decoded_Unsigned := Decode_Order_K_Unsigned ("0010010", 2, Consumed);
    Assert (Decoded_Unsigned = 14, "Decode Order-K failed");
@@ -64,8 +62,8 @@ begin
 
    -- TEST 7
    Put_Line ("TEST 7 - Order-0 Signed Positive Encoding");
-   Put_Line ("  7.1 Assert Value 2 encodes to '011' (maps to 3)");
-   Assert (Encode_Order_0_Signed (2) = "011", "Signed pos encoding failed");
+   Put_Line ("  7.1 Assert Value 2 encodes to '00100' (maps to 3)");
+   Assert (Encode_Order_0_Signed (2) = "00100", "Signed pos encoding failed");
    Put_Line ("      PASS");
 
    -- TEST 8
